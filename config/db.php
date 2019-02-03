@@ -2,9 +2,9 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'mysql:host=localhost;dbname=family_cellar',
-    'username' => 'family_cellar',
-    'password' => 'family_cellar',
+    'dsn' => 'mysql:host=localhost;dbname=cellar',
+    'username' => 'cellar',
+    'password' => 'cellar',
     'charset' => 'utf8',
 
     // Schema cache options (for production environment)

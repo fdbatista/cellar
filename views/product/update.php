@@ -7,7 +7,7 @@ use yii\helpers\Html;
 
 $this->title = Yii::t('app', 'Actualizar bebida');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Bebidas'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->brand->name, 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Actualizar');
 ?>
 <div class="product-update">
@@ -15,7 +15,7 @@ $this->params['breadcrumbs'][] = Yii::t('app', 'Actualizar');
     <!--<h2><?= Html::encode($this->title) ?></h2>-->
 
     <?= $this->render('_form', [
-        'model' => $model,
+        'model' => $model, 'dropdowns' => $dropdowns
     ]) ?>
 
 </div>

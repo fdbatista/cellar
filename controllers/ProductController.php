@@ -127,9 +127,24 @@ class ProductController extends Controller {
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
+		
+		$dropdowns = ['categories' => [], 'brands' => [], 'countries' => [], 'cellars' => []];
+
+        foreach (Cellar::find()->orderBy('name')->all() as $item) {
+            $dropdowns['cellars'][$item->id] = $item->name;
+        }
+        foreach (Category::find()->orderBy('name')->all() as $item) {
+            $dropdowns['categories'][$item->id] = $item->name;
+        }
+        foreach (Brand::find()->orderBy('name')->all() as $item) {
+            $dropdowns['brands'][$item->id] = $item->name;
+        }
+        foreach (Country::find()->orderBy('name')->all() as $item) {
+            $dropdowns['countries'][$item->id] = $item->name;
+        }
 
         return $this->render('update', [
-                    'model' => $model,
+                    'model' => $model, 'dropdowns' => $dropdowns
         ]);
     }
 

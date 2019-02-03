@@ -15,7 +15,7 @@ class m180829_201108_create_product_table extends Migration {
             'id' => $this->primaryKey(),
             'description' => $this->string(1000),
             'number' => $this->integer()->notNull(),
-            'date' => $this->integer()->notNull(),
+            'date' => $this->date()->notNull(),
             'capacity' => $this->float()->notNull(),
             'alcoholic_proof' => $this->float()->notNull(),
             'aging' => $this->integer(),
