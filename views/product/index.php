@@ -12,7 +12,6 @@ $this->params['breadcrumbs'][] = $this->title;
 ?>
 <div class="product-index">
 
-    <!--<h2><?= Html::encode($this->title) ?></h2>-->
     <?php Pjax::begin(); ?>
     <?php // echo $this->render('_search', ['model' => $searchModel]); ?>
 

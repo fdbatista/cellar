@@ -10,10 +10,11 @@ use Yii;
  * @property int $id
  * @property string $description
  * @property int $number
- * @property int $date
+ * @property string $date
  * @property double $capacity
  * @property double $alcoholic_proof
  * @property int $aging
+ * @property int $status
  * @property double $price
  * @property int $category_type_id
  * @property int $brand_id
@@ -42,9 +43,11 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             [['number', 'date', 'capacity', 'alcoholic_proof', 'price', 'category_type_id', 'brand_id', 'country_id', 'cellar_id'], 'required'],
-            [['number', 'aging', 'category_type_id', 'brand_id', 'country_id', 'cellar_id'], 'integer'],
+            [['number', 'aging', 'status', 'category_type_id', 'brand_id', 'country_id', 'cellar_id'], 'integer'],
+            [['date'], 'safe'],
             [['capacity', 'alcoholic_proof', 'price'], 'number'],
             [['description'], 'string', 'max' => 1000],
+            [['number', 'cellar_id'], 'unique', 'targetAttribute' => ['number', 'cellar_id']],
             [['brand_id'], 'exist', 'skipOnError' => true, 'targetClass' => Brand::className(), 'targetAttribute' => ['brand_id' => 'id']],
             [['category_type_id'], 'exist', 'skipOnError' => true, 'targetClass' => CategoryType::className(), 'targetAttribute' => ['category_type_id' => 'id']],
             [['cellar_id'], 'exist', 'skipOnError' => true, 'targetClass' => Cellar::className(), 'targetAttribute' => ['cellar_id' => 'id']],

@@ -46,13 +46,13 @@ AppAsset::register($this);
             } else {
                 if (Yii::$app->user->identity->isAdmin()) {
                     $menuItems[] = [
-                        'label' => '<i class="fa fa-cogs"></i> Administrar',
+                        'label' => '<i class="fa fa-cog"></i> Administrar',
                         'items' => [
                                 ['label' => '<i class="fa fa-list-ul"></i> Colecciones', 'url' => ['/cellar/index']],
                                 ['label' => '<i class="fa fa-globe-americas"></i> Pa&iacute;ses', 'url' => ['/country/index']],
                                 ['label' => '<i class="fa fa-stamp"></i> Marcas', 'url' => ['/brand/index']],
-                                ['label' => '<i class="fa fa-glass-martini-alt"></i> Tipos de bebidas', 'url' => ['/category/index']],
-                                ['label' => '<i class="fa fa-cocktail"></i> Bebidas', 'url' => ['/product/index']],
+                                ['label' => '<i class="fa fa-cocktail"></i> Tipos de bebidas', 'url' => ['/category/index']],
+                                ['label' => '<i class="fa fa-glass-martini-alt"></i> Bebidas', 'url' => ['/product/index']],
                         ],
                     ];
                     $menuItems[] = [
