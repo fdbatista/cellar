@@ -500,18 +500,18 @@ CREATE TABLE IF NOT EXISTS `product` (
 --
 
 INSERT INTO `product` (`id`, `description`, `number`, `date`, `capacity`, `alcoholic_proof`, `aging`, `status`, `price`, `category_type_id`, `brand_id`, `country_id`, `cellar_id`) VALUES
-(1, 'Compra de verano', 1, '2018-05-23', 700, 40, NULL, 1, 100, 7, 6, 65, 1),
-(2, 'Módulo vacacional de Pipo en La Habana', 1, '2018-08-23', 700, 40, NULL, 1, 35, 5, 7, 46, 2),
-(3, 'Regalo de Raffaele por cumpleaños de FD', 2, '2018-12-03', 750, 12.5, NULL, 1, 0, 16, 8, 182, 1),
-(4, 'Regalo de Richard por cumpleaños de FD', 2, '2018-12-03', 500, 38, NULL, 1, 0, 46, 2, 46, 2),
+(1, 'Compra de verano, mini-mercado El Criollito, Las Tunas', 1, '2018-05-23', 700, 40, NULL, 1, 100, 7, 6, 65, 1),
+(2, 'Módulo vacacional de Pipo, La Habana', 1, '2018-08-23', 700, 40, NULL, 1, 35, 5, 7, 46, 2),
+(3, 'Regalo de Raffaele, cumpleaños de FD, Las Tunas', 2, '2018-12-03', 750, 12.5, NULL, 1, 0, 16, 8, 182, 1),
+(4, 'Regalo de Richard, cumpleaños de FD, Las Tunas', 2, '2018-12-03', 500, 38, NULL, 1, 0, 46, 2, 46, 2),
 (5, 'Compra de fin de año, Los Árabes, Ciego de Ávila', 3, '2018-12-25', 700, 38, NULL, 1, 60, 5, 2, 46, 2),
 (6, 'Compra de fin de año, Los Árabes, Ciego de Ávila', 3, '2018-12-25', 700, 38, NULL, 1, 60, 5, 2, 46, 1),
-(7, 'Venta fin de año, comercial MININT', 4, '2018-12-27', 350, 40, NULL, 1, 24, 46, 1, 46, 2),
-(8, 'Venta fin de año, comercial MININT', 4, '2018-12-27', 350, 40, NULL, 1, 24, 46, 1, 46, 1),
-(9, 'Módulo de fin de año de Pipo, agricultura Ciego de Ávila', 5, '2018-01-07', 700, 38, NULL, 1, 50, 46, 2, 46, 1),
-(10, 'Regalo a Pipo en feria, Ciego de Ávila', 5, '2019-01-15', 700, 34, NULL, 1, 0, 1, 9, 46, 2),
-(11, 'Tienda Comercial MININT', 6, '2019-01-25', 700, 40, NULL, 1, 42, 2, 7, 46, 2),
-(12, 'Tienda Comercial MININT', 6, '2019-01-27', 700, 40, NULL, 1, 42, 2, 7, 46, 1);
+(7, 'Venta fin de año UAC MININT, Las Tunas', 4, '2018-12-27', 350, 40, NULL, 1, 24, 46, 1, 46, 2),
+(8, 'Venta fin de año UAC MININT, Las Tunas', 4, '2018-12-27', 350, 40, NULL, 1, 24, 46, 1, 46, 1),
+(9, 'Venta fin de año, MINAGRI Ciego de Ávila', 5, '2018-01-07', 700, 38, NULL, 1, 50, 46, 2, 46, 1),
+(10, 'Regalo a Pipo en feria agropecuaria, Ciego de Ávila', 5, '2019-01-15', 700, 34, NULL, 1, 0, 1, 9, 46, 2),
+(11, 'Tienda UAC MININT, Las Tunas', 6, '2019-01-26', 700, 40, NULL, 1, 42, 2, 7, 46, 2),
+(12, 'Tienda UAC MININT, Las Tunas', 6, '2019-01-28', 700, 40, NULL, 1, 42, 2, 7, 46, 1);
 
 -- --------------------------------------------------------
 
