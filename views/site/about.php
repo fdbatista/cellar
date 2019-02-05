@@ -1,18 +1,15 @@
 <?php
 
-/* @var $this yii\web\View */
+/* @var $this View */
 
-use yii\helpers\Html;
+use yii\web\View;
 
 $this->title = 'About';
 $this->params['breadcrumbs'][] = $this->title;
 ?>
+
 <div class="site-about">
-    <!--<h2><?= Html::encode($this->title) ?></h2>-->
-
-    <p>
-        This is the About page. You may modify the following file to customize its content:
-    </p>
-
-    <code><?= __FILE__ ?></code>
+    <h4 class="text-info"><i class="fa fa-info-circle"></i> <?= $about->about ?></h4>
+    <h5 class="text-info"><i class="fa fa-map-marker-alt"></i> <?= $about->address ?></h5>
+    <h5 class="text-info"><i class="fa fa-mobile-alt"></i> <?= $about->phone ?></h5>
 </div>

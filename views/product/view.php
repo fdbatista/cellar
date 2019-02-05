@@ -6,7 +6,7 @@ use yii\widgets\DetailView;
 /* @var $this yii\web\View */
 /* @var $model app\models\Product */
 
-$this->title = $model->brand->name;
+$this->title = $model->cellar->name. " - botella $model->number";
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Bebidas'), 'url' => ['index']];
 $this->params['breadcrumbs'][] = $this->title;
 ?>
@@ -34,11 +34,27 @@ $this->params['breadcrumbs'][] = $this->title;
             'capacity',
             'alcoholic_proof',
             'aging',
-            'price',
-            'category_type_id',
-            'brand_id',
-            'country_id',
-            'cellar_id',
+            [
+                'attribute' => 'price',
+                'value' => "$$model->price"
+            ],
+            [
+                'attribute' => 'category_type_id',
+                'label' => 'Tipo',
+                'value' => $model->categoryType->type->name === $model->categoryType->name ? $model->categoryType->type->name : $model->categoryType->type->name . ' ' . $model->categoryType->name
+            ],
+            [
+                'attribute' => 'brand_id',
+                'value' => $model->brand->name
+            ],
+            [
+                'attribute' => 'country_id',
+                'value' => $model->country->name
+            ],
+            [
+                'attribute' => 'cellar_id',
+                'value' => $model->cellar->name
+            ],
         ],
     ]) ?>
 

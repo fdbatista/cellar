@@ -2,13 +2,15 @@
 
 namespace app\controllers;
 
+use app\models\AppConfig;
+use app\models\ContactForm;
+use app\models\LoginForm;
 use Yii;
 use yii\filters\AccessControl;
+use yii\filters\VerbFilter;
 use yii\web\Controller;
 use yii\web\Response;
-use yii\filters\VerbFilter;
-use app\models\LoginForm;
-use app\models\ContactForm;
+use const YII_ENV_TEST;
 
 class SiteController extends Controller {
 
@@ -58,7 +60,7 @@ class SiteController extends Controller {
      * @return string
      */
     public function actionIndex() {
-        return $this->render('index');
+        return $this->render('index', ['app_name' => AppConfig::findOne(1)->app_title]);
     }
 
     /**
@@ -115,7 +117,7 @@ class SiteController extends Controller {
      * @return string
      */
     public function actionAbout() {
-        return $this->render('about');
+        return $this->render('about', ['about' => AppConfig::findOne(1)]);
     }
 
 }

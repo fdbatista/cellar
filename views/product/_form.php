@@ -24,7 +24,7 @@ DatePickerAsset::register($this);
         <div class="col-sm-4">
             <?php
             echo '<label class="control-label">Tipo de bebida</label>';
-            echo Select2::widget(['name' => 'type_id', 'id' => 'type_id', 'data' => $dropdowns['categories'], 'pluginOptions' => ['allowClear' => true], 'options' => ['placeholder' => 'Seleccione...']]);
+            echo Select2::widget(['name' => 'type_id', 'id' => 'type_id', 'data' => $dropdowns['categories'], 'value' => $type_id, 'pluginOptions' => ['allowClear' => true], 'options' => ['placeholder' => 'Seleccione...']]);
             echo Html::hiddenInput('input-type-1', 'Additional value 1', ['id' => 'input-type-1']);
             echo Html::hiddenInput('input-type-2', 'Additional value 2', ['id' => 'input-type-2']);
             ?>

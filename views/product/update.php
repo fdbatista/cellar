@@ -1,21 +1,19 @@
 <?php
 
-use yii\helpers\Html;
+use app\models\Product;
+use yii\web\View;
 
-/* @var $this yii\web\View */
-/* @var $model app\models\Product */
+/* @var $this View */
+/* @var $model Product */
 
 $this->title = Yii::t('app', 'Actualizar bebida');
 $this->params['breadcrumbs'][] = ['label' => Yii::t('app', 'Bebidas'), 'url' => ['index']];
-$this->params['breadcrumbs'][] = ['label' => $model->brand->name, 'url' => ['view', 'id' => $model->id]];
+$this->params['breadcrumbs'][] = ['label' => $model->cellar->name. " - botella $model->number", 'url' => ['view', 'id' => $model->id]];
 $this->params['breadcrumbs'][] = Yii::t('app', 'Actualizar');
 ?>
+
 <div class="product-update">
-
-    <!--<h2><?= Html::encode($this->title) ?></h2>-->
-
     <?= $this->render('_form', [
-        'model' => $model, 'dropdowns' => $dropdowns
+        'model' => $model, 'dropdowns' => $dropdowns, 'type_id' => $model->categoryType->type_id
     ]) ?>
-
 </div>

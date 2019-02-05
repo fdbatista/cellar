@@ -70,22 +70,8 @@ class ProductController extends Controller {
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             return $this->redirect(['view', 'id' => $model->id]);
         }
-        $dropdowns = ['categories' => [], 'brands' => [], 'countries' => [], 'cellars' => []];
 
-        foreach (Cellar::find()->orderBy('name')->all() as $item) {
-            $dropdowns['cellars'][$item->id] = $item->name;
-        }
-        foreach (Category::find()->orderBy('name')->all() as $item) {
-            $dropdowns['categories'][$item->id] = $item->name;
-        }
-        foreach (Brand::find()->orderBy('name')->all() as $item) {
-            $dropdowns['brands'][$item->id] = $item->name;
-        }
-        foreach (Country::find()->orderBy('name')->all() as $item) {
-            $dropdowns['countries'][$item->id] = $item->name;
-        }
-
-        return $this->render('create', ['model' => $model, 'dropdowns' => $dropdowns]);
+        return $this->render('create', ['model' => $model, 'dropdowns' => $this->getDropdowns()]);
     }
 
     public function actionGetSubTypes() {
@@ -102,7 +88,7 @@ class ProductController extends Controller {
                     $param2 = $params[1]; // get the value of input-type-2
                 }
                 $out = [];
-                $entities = CategoryType::find()->where(['type_id' => $cat_id])->all();
+                $entities = CategoryType::find()->where(['type_id' => $cat_id])->orderBy('name ASC')->all();
                 foreach ($entities as $entity) {
                     $out[] = ['id' => $entity->id, 'name' => $entity->name];
                 }
@@ -112,6 +98,24 @@ class ProductController extends Controller {
             }
         }
         echo Json::encode(['output' => '', 'selected' => '']);
+    }
+    
+    private function getDropdowns() {
+        $dropdowns = ['categories' => [], 'brands' => [], 'countries' => [], 'cellars' => []];
+
+        foreach (Cellar::find()->orderBy('name')->all() as $item) {
+            $dropdowns['cellars'][$item->id] = $item->name;
+        }
+        foreach (Category::find()->orderBy('name')->all() as $item) {
+            $dropdowns['categories'][$item->id] = $item->name;
+        }
+        foreach (Brand::find()->orderBy('name')->all() as $item) {
+            $dropdowns['brands'][$item->id] = $item->name;
+        }
+        foreach (Country::find()->orderBy('name')->all() as $item) {
+            $dropdowns['countries'][$item->id] = $item->name;
+        }
+        return $dropdowns;
     }
 
     /**
@@ -128,24 +132,7 @@ class ProductController extends Controller {
             return $this->redirect(['view', 'id' => $model->id]);
         }
 
-        $dropdowns = ['categories' => [], 'brands' => [], 'countries' => [], 'cellars' => []];
-
-        foreach (Cellar::find()->orderBy('name')->all() as $item) {
-            $dropdowns['cellars'][$item->id] = $item->name;
-        }
-        foreach (Category::find()->orderBy('name')->all() as $item) {
-            $dropdowns['categories'][$item->id] = $item->name;
-        }
-        foreach (Brand::find()->orderBy('name')->all() as $item) {
-            $dropdowns['brands'][$item->id] = $item->name;
-        }
-        foreach (Country::find()->orderBy('name')->all() as $item) {
-            $dropdowns['countries'][$item->id] = $item->name;
-        }
-
-        return $this->render('update', [
-                    'model' => $model, 'dropdowns' => $dropdowns
-        ]);
+        return $this->render('update', ['model' => $model, 'dropdowns' => $this->getDropdowns()]);
     }
 
     /**

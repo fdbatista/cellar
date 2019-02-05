@@ -30,7 +30,7 @@ class ModelsData {
             'capacity' => Yii::t('app', 'Capacidad (ml)'),
             'alcoholic_proof' => Yii::t('app', 'Grado de alcohol'),
             'aging' => Yii::t('app', 'Añejamiento'),
-            'price' => Yii::t('app', 'Costo'),
+            'price' => Yii::t('app', 'Costo (CUP)'),
             'category_type_id' => Yii::t('app', 'Sub tipo'),
             'brand_id' => Yii::t('app', 'Marca'),
             'country_id' => Yii::t('app', 'País'),

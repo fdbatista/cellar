@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Feb 03, 2019 at 11:21 PM
+-- Generation Time: Feb 05, 2019 at 04:12 PM
 -- Server version: 5.7.23
 -- PHP Version: 7.2.10
 
@@ -44,7 +44,7 @@ CREATE TABLE IF NOT EXISTS `app_config` (
 --
 
 INSERT INTO `app_config` (`id`, `app_title`, `about`, `address`, `email`, `phone`) VALUES
-(1, 'My App', 'App Description', 'Bla bla', 'app@server.com', '+53 5 123 4567');
+(1, 'Bodega Batista - Bayo', 'Aplicación para la gestión de cavas y colecciones de bebidas', 'Menocal #41 Altos, Rpto Primero', 'fdbatista@gmail.com', '+53 5 405 7397');
 
 -- --------------------------------------------------------
 
@@ -58,17 +58,19 @@ CREATE TABLE IF NOT EXISTS `brand` (
   `name` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `name` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `brand`
 --
 
 INSERT INTO `brand` (`id`, `name`) VALUES
+(10, 'Arecha'),
 (8, 'Baron Lescompte'),
 (4, 'Chanceler'),
 (6, 'Crowley\'s'),
 (5, 'Cubay'),
+(11, 'Guayabita del Pinar'),
 (1, 'Havana Club'),
 (2, 'Mulata'),
 (3, 'Old Premiers'),
@@ -119,7 +121,7 @@ CREATE TABLE IF NOT EXISTS `category_type` (
   PRIMARY KEY (`id`),
   UNIQUE KEY `idx_categorytype_nametype` (`name`,`type_id`),
   KEY `fk_categorytype_type` (`type_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=48 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Dumping data for table `category_type`
@@ -131,8 +133,9 @@ INSERT INTO `category_type` (`id`, `name`, `type_id`) VALUES
 (23, 'Achampañada', 7),
 (6, 'Aguardiente de caña', 2),
 (12, 'Aliñao', 4),
-(5, 'Añejo', 1),
 (46, 'Añejo Blanco', 1),
+(5, 'Añejo Dorado', 1),
+(47, 'Añejo Suave', 1),
 (10, 'Anís', 4),
 (33, 'Blanc de blancs', 8),
 (34, 'Blanc de nors', 8),
@@ -497,18 +500,18 @@ CREATE TABLE IF NOT EXISTS `product` (
 --
 
 INSERT INTO `product` (`id`, `description`, `number`, `date`, `capacity`, `alcoholic_proof`, `aging`, `status`, `price`, `category_type_id`, `brand_id`, `country_id`, `cellar_id`) VALUES
-(1, 'Compra de verano', 1, '2018/05/23', 700, 40, NULL, 1, 100, 7, 6, 65, 1),
-(2, 'Módulo vacacional de Pipo en La Habana', 1, '2018/08/23', 700, 40, NULL, 1, 35, 5, 7, 46, 2),
-(3, 'Regalo de Raffaele por cumpleaños de FD', 2, '2018/12/03', 750, 12.5, NULL, 1, 0, 16, 8, 182, 1),
-(4, 'Regalo de Richard por cumpleaños de FD', 2, '2018/12/03', 500, 38, NULL, 1, 0, 46, 2, 46, 2),
-(5, 'Compra de fin de año, Los Árabes, Ciego de Ávila', 3, '2018/12/25', 700, 38, NULL, 1, 60, 5, 2, 46, 2),
-(6, 'Compra de fin de año, Los Árabes, Ciego de Ávila', 3, '2018/12/25', 700, 38, NULL, 1, 60, 5, 2, 46, 1),
-(7, 'Venta fin de año, comercial MININT', 4, '2018/12/27', 350, 40, NULL, 1, 24, 46, 1, 46, 2),
-(8, 'Venta fin de año, comercial MININT', 4, '2018/12/27', 350, 40, NULL, 1, 24, 46, 1, 46, 1),
-(9, 'Módulo de fin de año de Pipo, agricultura Ciego de Ávila', 5, '2018/01/07', 700, 38, NULL, 1, 50, 46, 2, 46, 1),
-(10, 'Regalo a Pipo en feria, Ciego de Ávila', 5, '2019/01/15', 700, 34, NULL, 1, 0, 1, 9, 46, 2),
-(11, 'Tienda Comercial MININT', 6, '2019/01/25', 700, 40, NULL, 1, 42, 2, 7, 46, 2),
-(12, 'Tienda Comercial MININT', 6, '2019/01/27', 700, 40, NULL, 1, 42, 2, 7, 46, 1);
+(1, 'Compra de verano', 1, '2018-05-23', 700, 40, NULL, 1, 100, 7, 6, 65, 1),
+(2, 'Módulo vacacional de Pipo en La Habana', 1, '2018-08-23', 700, 40, NULL, 1, 35, 5, 7, 46, 2),
+(3, 'Regalo de Raffaele por cumpleaños de FD', 2, '2018-12-03', 750, 12.5, NULL, 1, 0, 16, 8, 182, 1),
+(4, 'Regalo de Richard por cumpleaños de FD', 2, '2018-12-03', 500, 38, NULL, 1, 0, 46, 2, 46, 2),
+(5, 'Compra de fin de año, Los Árabes, Ciego de Ávila', 3, '2018-12-25', 700, 38, NULL, 1, 60, 5, 2, 46, 2),
+(6, 'Compra de fin de año, Los Árabes, Ciego de Ávila', 3, '2018-12-25', 700, 38, NULL, 1, 60, 5, 2, 46, 1),
+(7, 'Venta fin de año, comercial MININT', 4, '2018-12-27', 350, 40, NULL, 1, 24, 46, 1, 46, 2),
+(8, 'Venta fin de año, comercial MININT', 4, '2018-12-27', 350, 40, NULL, 1, 24, 46, 1, 46, 1),
+(9, 'Módulo de fin de año de Pipo, agricultura Ciego de Ávila', 5, '2018-01-07', 700, 38, NULL, 1, 50, 46, 2, 46, 1),
+(10, 'Regalo a Pipo en feria, Ciego de Ávila', 5, '2019-01-15', 700, 34, NULL, 1, 0, 1, 9, 46, 2),
+(11, 'Tienda Comercial MININT', 6, '2019-01-25', 700, 40, NULL, 1, 42, 2, 7, 46, 2),
+(12, 'Tienda Comercial MININT', 6, '2019-01-27', 700, 40, NULL, 1, 42, 2, 7, 46, 1);
 
 -- --------------------------------------------------------
 
