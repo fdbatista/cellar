@@ -475,7 +475,7 @@ CREATE TABLE IF NOT EXISTS `product` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `description` varchar(1000) COLLATE utf8_unicode_ci DEFAULT NULL,
   `number` int(11) NOT NULL,
-  `date` int(11) NOT NULL,
+  `date` date NOT NULL,
   `capacity` float NOT NULL,
   `alcoholic_proof` float NOT NULL,
   `aging` int(11) DEFAULT NULL,
@@ -497,18 +497,18 @@ CREATE TABLE IF NOT EXISTS `product` (
 --
 
 INSERT INTO `product` (`id`, `description`, `number`, `date`, `capacity`, `alcoholic_proof`, `aging`, `status`, `price`, `category_type_id`, `brand_id`, `country_id`, `cellar_id`) VALUES
-(1, '2018/05/23', 1, 1, 700, 40, NULL, 1, 100, 7, 6, 65, 1),
-(2, '2018/08/23', 1, 1, 700, 40, NULL, 1, 35, 5, 7, 46, 2),
-(3, '2018/12/03 - Regalo de Raffaele', 2, 1, 750, 12.5, NULL, 1, 0, 16, 8, 182, 1),
-(4, '2018/12/03 - Regalo de Richard', 2, 1, 500, 38, NULL, 1, 0, 46, 2, 46, 2),
-(5, '2018/12/25', 3, 1, 700, 38, NULL, 1, 60, 5, 2, 46, 2),
-(6, '2018/12/25', 3, 1, 700, 38, NULL, 1, 60, 5, 2, 46, 1),
-(7, '2018/12/27', 4, 1, 350, 40, NULL, 1, 24, 46, 1, 46, 2),
-(8, '2018/12/27', 4, 1, 350, 40, NULL, 1, 24, 46, 1, 46, 1),
-(9, '2018/01/07', 5, 1, 700, 38, NULL, 1, 50, 46, 2, 46, 1),
-(10, '2019/01 - Regalo Feria avileña', 5, 1, 700, 34, NULL, 1, 0, 1, 9, 46, 2),
-(11, '2019/01 - Comercial MININT', 6, 1, 700, 40, NULL, 1, 42, 2, 7, 46, 2),
-(12, '2019/01 - Comercial MININT', 6, 1, 700, 40, NULL, 1, 42, 2, 7, 46, 1);
+(1, 'Compra de verano', 1, '2018/05/23', 700, 40, NULL, 1, 100, 7, 6, 65, 1),
+(2, 'Módulo vacacional de Pipo en La Habana', 1, '2018/08/23', 700, 40, NULL, 1, 35, 5, 7, 46, 2),
+(3, 'Regalo de Raffaele por cumpleaños de FD', 2, '2018/12/03', 750, 12.5, NULL, 1, 0, 16, 8, 182, 1),
+(4, 'Regalo de Richard por cumpleaños de FD', 2, '2018/12/03', 500, 38, NULL, 1, 0, 46, 2, 46, 2),
+(5, 'Compra de fin de año, Los Árabes, Ciego de Ávila', 3, '2018/12/25', 700, 38, NULL, 1, 60, 5, 2, 46, 2),
+(6, 'Compra de fin de año, Los Árabes, Ciego de Ávila', 3, '2018/12/25', 700, 38, NULL, 1, 60, 5, 2, 46, 1),
+(7, 'Venta fin de año, comercial MININT', 4, '2018/12/27', 350, 40, NULL, 1, 24, 46, 1, 46, 2),
+(8, 'Venta fin de año, comercial MININT', 4, '2018/12/27', 350, 40, NULL, 1, 24, 46, 1, 46, 1),
+(9, 'Módulo de fin de año de Pipo, agricultura Ciego de Ávila', 5, '2018/01/07', 700, 38, NULL, 1, 50, 46, 2, 46, 1),
+(10, 'Regalo a Pipo en feria, Ciego de Ávila', 5, '2019/01/15', 700, 34, NULL, 1, 0, 1, 9, 46, 2),
+(11, 'Tienda Comercial MININT', 6, '2019/01/25', 700, 40, NULL, 1, 42, 2, 7, 46, 2),
+(12, 'Tienda Comercial MININT', 6, '2019/01/27', 700, 40, NULL, 1, 42, 2, 7, 46, 1);
 
 -- --------------------------------------------------------
 

@@ -1,5 +1,6 @@
 <?php
 
+use app\assets\DatePickerAsset;
 use app\models\Product;
 use kartik\widgets\DepDrop;
 use kartik\widgets\Select2;
@@ -11,6 +12,8 @@ use yii\widgets\ActiveForm;
 /* @var $this View */
 /* @var $model Product */
 /* @var $form ActiveForm */
+
+DatePickerAsset::register($this);
 ?>
 
 <div class="product-form">
@@ -49,7 +52,7 @@ use yii\widgets\ActiveForm;
     <div class="row">
         <div class="col-sm-4"><?= $form->field($model, 'description')->textInput(['maxlength' => true]) ?></div>
         <div class="col-sm-4"><?= $form->field($model, 'number')->textInput() ?></div>
-        <div class="col-sm-4"><?= $form->field($model, 'date')->textInput() ?></div>
+        <div class="col-sm-4"><?= $form->field($model, 'date')->textInput(['class' => 'form-control datetimepicker', 'readonly' => 'readonly']) ?></div>
     </div>
     
     <div class="row">

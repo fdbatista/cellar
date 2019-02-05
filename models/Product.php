@@ -42,7 +42,7 @@ class Product extends \yii\db\ActiveRecord
     {
         return [
             [['number', 'date', 'capacity', 'alcoholic_proof', 'price', 'category_type_id', 'brand_id', 'country_id', 'cellar_id'], 'required'],
-            [['number', 'date', 'aging', 'category_type_id', 'brand_id', 'country_id', 'cellar_id'], 'integer'],
+            [['number', 'aging', 'category_type_id', 'brand_id', 'country_id', 'cellar_id'], 'integer'],
             [['capacity', 'alcoholic_proof', 'price'], 'number'],
             [['description'], 'string', 'max' => 1000],
             [['brand_id'], 'exist', 'skipOnError' => true, 'targetClass' => Brand::className(), 'targetAttribute' => ['brand_id' => 'id']],
