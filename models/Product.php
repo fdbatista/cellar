@@ -94,4 +94,9 @@ class Product extends \yii\db\ActiveRecord
     {
         return $this->hasOne(Country::className(), ['id' => 'country_id']);
     }
+    
+    public function getCategory()
+    {
+        return $this->categoryType ? $this->categoryType->type : '';
+    }
 }

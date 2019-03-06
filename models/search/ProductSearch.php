@@ -10,25 +10,26 @@ use app\models\Product;
 /**
  * ProductSearch represents the model behind the search form of `app\models\Product`.
  */
-class ProductSearch extends Product
-{
+class ProductSearch extends Product {
+
+    public $cellar;
+    public $category;
+
     /**
      * {@inheritdoc}
      */
-    public function rules()
-    {
+    public function rules() {
         return [
-            [['id', 'number', 'capacity', 'aging', 'category_type_id', 'brand_id', 'country_id', 'cellar_id'], 'integer'],
-            [['description', 'date'], 'safe'],
-            [['alcoholic_proof', 'price'], 'number'],
+                [['id', 'number', 'capacity', 'aging', 'category_type_id', 'brand_id', 'country_id', 'cellar_id'], 'integer'],
+                [['description', 'date', 'cellar', 'category.type'], 'safe'],
+                [['alcoholic_proof', 'price'], 'number'],
         ];
     }
 
     /**
      * {@inheritdoc}
      */
-    public function scenarios()
-    {
+    public function scenarios() {
         // bypass scenarios() implementation in the parent class
         return Model::scenarios();
     }
@@ -40,21 +41,28 @@ class ProductSearch extends Product
      *
      * @return ActiveDataProvider
      */
-    public function search($params)
-    {
+    public function search($params) {
         $query = Product::find();
 
         // add conditions that should always apply here
-
+        $query->joinWith(['cellar']);
+        $query->joinWith(['category.type']);
+        
         $dataProvider = new ActiveDataProvider([
             'query' => $query,
         ]);
 
-        $this->load($params);
+        $dataProvider->sort->attributes['cellar'] = [
+            'asc' => ['cellar.name' => SORT_ASC],
+            'desc' => ['cellar.name' => SORT_DESC],
+        ];
+        
+        /*$dataProvider->sort->attributes['category'] = [
+            'asc' => ['category.name' => SORT_ASC],
+            'desc' => ['category.name' => SORT_DESC],
+        ];*/
 
-        if (!$this->validate()) {
-            // uncomment the following line if you do not want to return any records when validation fails
-            // $query->where('0=1');
+        if (!($this->load($params) && $this->validate())) {
             return $dataProvider;
         }
 
@@ -73,8 +81,12 @@ class ProductSearch extends Product
             'cellar_id' => $this->cellar_id,
         ]);
 
-        $query->andFilterWhere(['like', 'description', $this->description]);
+        $query->andFilterWhere(['like', 'description', $this->description])
+                ->andFilterWhere(['like', 'cellar.name', $this->cellar])
+                //->andFilterWhere(['like', 'category', $this->getCategory()])
+                ;
 
         return $dataProvider;
     }
+
 }

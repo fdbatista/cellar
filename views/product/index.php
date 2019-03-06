@@ -25,16 +25,19 @@ $this->params['breadcrumbs'][] = $this->title;
         'columns' => [
             ['class' => 'yii\grid\SerialColumn'],
 
-            'cellar_id',
+            [
+                'attribute' => 'cellar',
+                'value' => 'cellar.name',
+            ],
             'number',
+            [
+                'attribute' => 'category',
+                'value' => 'categoryType.type.name',
+            ],
+            'category.type',
             'category_type_id',
             'brand_id',
             'date',
-            //'capacity',
-            //'alcoholic_proof',
-            //'aging',
-            //'price',
-            //'country_id',
 
             ['class' => 'yii\grid\ActionColumn'],
         ],
